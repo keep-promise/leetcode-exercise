@@ -21,10 +21,11 @@ var isPalindrome = function(str, start, end) {
 }
 
 var isPalindrom2 = function(str) {
-  return str.split('').reverse().join() === str;
+  return str.split('').reverse().join('') === str;
 }
 
 var longestPalindromeOn3 = function(s) {
+  console.log('s', s)
   var len = s.length;
   var retstr = '';
   var first = 0;
@@ -32,6 +33,7 @@ var longestPalindromeOn3 = function(s) {
     first = 0;
     while (first + len <= s.length) {
       var substr = s.substring(first, first + len);
+      console.log('substr', substr)
       if (isPalindrom2(substr)) {
         len = 0;
         retstr = substr;
