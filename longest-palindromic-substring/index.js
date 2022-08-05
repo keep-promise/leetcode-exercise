@@ -45,3 +45,28 @@ var longestPalindromeOn3 = function(s) {
   }
   return retstr;
 };
+
+var longestPalindromeOn2 = function(s) {
+  var dp = [];
+  var max = 1;
+  var max_start = 0;
+
+  for (let i = 0; i < s.length; i++) {
+    dp.push([]);
+  }
+
+  for (let end = 0; end < s.length; end++) {
+    for (var start = 0; start < end; start++) {
+      if (s[start] === s[end]) {
+        if (end - start <= 2 || dp[start+1][end-1]) {
+          if (end - start + 1 > max) {
+            max = end - start + 1;
+            max_start = start;
+          }
+          dp[start][end] = true;
+        }
+      }
+    }
+  }
+  return s.substring(max_start, max_start + max);
+}
