@@ -47,8 +47,8 @@ var longestPalindromeOn3 = function(s) {
 };
 
 var longestPalindromeOn2 = function(s) {
-  var dp = [];
-  var max = 1;
+  var dp = []; // 记录状态
+  var max = 1; // 回文串最大长度
   var max_start = 0;
 
   for (let i = 0; i < s.length; i++) {
